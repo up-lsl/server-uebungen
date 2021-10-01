@@ -8,7 +8,7 @@ $dbpass="dbuser123";
 
 
 // Die Verbindung zur Datenbank wird aufgebaut.
-$pdo = new PDO("mysql:host=".$mysqlhost.";port=3306;dbname=".$dbname, $dbuser, $dbpass);
+$pdo = new PDO("mysql:host=$mysqlhost;port=3306;dbname=$dbname", $dbuser, $dbpass);
 
 // Alle Tabelleneinträge werden selektiert und in die Variable "result" gespeichert
 // (Der SQL-Befehl wird mit "$pdo->query()" an die Datenbank gesendet).
