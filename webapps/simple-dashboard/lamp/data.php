@@ -1,6 +1,9 @@
 <?php
 //Hier werden Datenbankinhalte verwaltet.
 
+//einbinden der Dankenbank-Verbindungsdatei
+include_once "dbconn.php";
+
 //Überprüfe den Grund für den Aufruf:
 if($_POST['id'] && $_POST['name']&& $_POST['type']=='kundentabelle'){
 	//Aufruf, um Zeile in Kundentabelle zu schreiben.
@@ -17,65 +20,54 @@ if($_POST['id'] && $_POST['name']&& $_POST['type']=='kundentabelle'){
 
 //Lese Daten aus Datenbank.
 function get_data($table_name){
-	//Datenbank Login-Informationen.
-	$host = 'localhost';
-	$port = 3306;
-	$dbname = '';
-	$user = '';
-	$pwd = '';
-	
 	try{
-	//Datenbankverbindung hestellen.
-	$conn = new PDO("mysql:host=$host;port=$port;dbname=$dbname", "$user", "$pwd");
-	//Sorgt für lesbare Fehlermeldung.
-	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	 
-	//SQL Befehl vorbereiten.
-	$selectQuery = 'SELECT * FROM '.$table_name;
-	//$selectQuery = 'SELECT * FROM :table_ame';
-	
-	$selectStatement = $conn->prepare($selectQuery);
-	//$selectStatement->bindParam(':tableName', $table_name, PDO::PARAM_STR);
-	
-	$selectStatement->execute();
-	//$selectStatement->execute([$table_name]);	
-	
-    //Wenn das Ergebnis Zeilen enthält, solle die Ergebisse zurückgegeen werden.
-	if($selectStatement->rowCount()){
-		//Speichere alle Zeilen in result.
-		$result = $selectStatement->fetchAll();
-	}else{
-		print "Keine Ergebnisse";
-	}
-		
-	//Datenbankverbindung trennen.
-	$conn = null;
-	
-	//Ergebnis zurückgeben.
-	return $result;
+		//Datenbankverbindung hestellen.
+		$conn = get_db_conn();
+
+		//Sorgt für lesbare Fehlermeldung.
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		//SQL Befehl vorbereiten.
+		$selectQuery = 'SELECT * FROM '.$table_name;
+		//$selectQuery = 'SELECT * FROM :table_ame';
+
+		$selectStatement = $conn->prepare($selectQuery);
+		//$selectStatement->bindParam(':tableName', $table_name, PDO::PARAM_STR);
+
+		$selectStatement->execute();
+		//$selectStatement->execute([$table_name]);
+
+	    //Wenn das Ergebnis Zeilen enthält, solle die Ergebisse zurückgegeen werden.
+		if($selectStatement->rowCount()){
+			//Speichere alle Zeilen in result.
+			$result = $selectStatement->fetchAll();
+		}else{
+			print "Keine Ergebnisse";
+		}
+
+		//Datenbankverbindung trennen.
+		$conn = null;
+
+		//Ergebnis zurückgeben.
+		return $result;
+
 	} catch(PDOException $e){
 		echo "Connection failed: " . $e->getMessage();
 	}
 }
 
 function insert_data_kunden($table, $data){
-	$host = 'localhost';
-	$port = 3306;
-	$dbname = '';
-	$user = '';
-	$pwd = '';
-	
 	try{
-	//Datenbankverbindung hestellen.
-	$conn = new PDO("mysql:host=$host;port=$port;dbname=$dbname", "$user", "$pwd");
+		//Datenbankverbindung hestellen.
+		$conn = get_db_conn();
 	 
-	//SQL Befehl ausführen.
-	$insert_query = "INSERT INTO ".$table."(id,name) VALUES(".$data['id'].",'".$data['name']."')";
+		//SQL Befehl ausführen.
+		$insert_query = "INSERT INTO ".$table."(id,name) VALUES(".$data['id'].",'".$data['name']."')";
 
-	$conn->query($insert_query);
+		$conn->query($insert_query);
 	
-	//Datenbankverbindung trennen.
-	$conn = null;
+		//Datenbankverbindung trennen.
+		close_db_conn($conn);
 	
 	} catch(Exception $e){
 		echo "Insert failed: " . $e->getMessage();
@@ -83,15 +75,9 @@ function insert_data_kunden($table, $data){
 }
 
 function insert_data_produkte($table, $data){
-	$host = 'localhost';
-	$port = 3306;
-	$dbname = '';
-	$user = '';
-	$pwd = '';
-	
 	try{
 	//Datenbankverbindung hestellen.
-	$conn = new PDO("mysql:host=$host;port=$port;dbname=$dbname", "$user", "$pwd");
+	$conn = get_db_conn();
 	 
 	//SQL Befehl ausführen.
 	$insert_query = "UPDATE ".$table." SET bestand =".$data[stock]." WHERE ".$table.".id = ".$data[pid];

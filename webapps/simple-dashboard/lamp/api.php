@@ -7,8 +7,10 @@ function get_joke(){
 	try{
 		$newJoke = file_get_contents("https://sv443.net/jokeapi/v2/joke/Programming?lang=de&blacklistFlags=nsfw,religious,political,racist,sexist&format=txt");
 		echo $newJoke;
+
 	}catch(Exception $e){
 		echo "Den kenn' ich schon ...";
 	}
 }
+
 ?>

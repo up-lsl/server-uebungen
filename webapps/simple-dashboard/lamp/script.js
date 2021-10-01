@@ -19,7 +19,7 @@ function onload(){
 			//Erzeuge AJAX-Anfrage, um die Daten an data.php zu senden.
 			
 			//Speichere die URL.
-			let ajaxurl = '/dashboard_lamp/data.php',
+			let ajaxurl = 'data.php',
 			//Stelle die Daten zusammen, die übertragen werden sollen.
 			data =  "pid= "+pid+"& stock="+value; 
 			
@@ -53,7 +53,7 @@ function onload(){
 			let value = parseInt(stock.innerHTML)-1;
 			
 			//Erzeuge AJAX-Anfrage:
-			let ajaxurl = '/dashboard_lamp/data.php',
+			let ajaxurl = 'data.php',
 			data =  "pid= "+pid+"& stock="+value; 
 						
 			var request = new XMLHttpRequest();
