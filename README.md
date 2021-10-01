@@ -12,23 +12,14 @@ Stand: Okt. 2021
 
 ------
 
-*Universität Passau*
-
-*Lehrstuhl für Wirtschaftsinformatik mit Schwerpunkt Informations- und IT-Servicemanagement*
-
-*IT-Zentrum/International House, Raum 261-262*
-
-*Innstraße 43*
-
+*Universität Passau*<br>
+*Lehrstuhl für Wirtschaftsinformatik mit Schwerpunkt Informations- und IT-Servicemanagement*<br>
+*IT-Zentrum/International House, Raum 261-262*<br>
+*Innstraße 43*<br>
 *94032 Passau*
 
-
-
-*Sekretariat*
-
-*Tel.: 0851 / 509 - 2591*
-
-*Fax: 0851 / 509 - 2592*
-
+*Sekretariat*<br>
+*Tel.: 0851 / 509 - 2591*<br>
+*Fax: 0851 / 509 - 2592*<br>
 *E-Mail: sekretariat.lehner@uni-passau.de*
 
