@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>
+	MEAN-Dashboard
+	</title>
+	<link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-app='dashboard' ng-controller='dashboardController'>
+	<h1>
+	  Willkommen zur MEAN-App! 
+	</h1>
+	<div class="tables">
+		<!--Enthält Tabelle für die Anzeige von Kunden.-->
+		<div id="kunden" class="container">
+			<h2>Kunden</h2>
+			<table>
+				<tr><th> ID </th><th> Name </th></tr>
+				<!--Erstellt eine Zeile für jeden Eintrag in kunden (ng-repeat).-->
+				<tr ng-repeat='kunde in kunden'>
+					<td>{{kunde.id}}</td>
+					<td>{{kunde.name}}</td>
+				</tr>
+				<tr>
+					<!--Formular, um einen neuen Kunden zu erstellen.-->
+					<form id="myForm" ng-submit='erstelleKunde(kunde)'>
+						<td> 
+							<input type="number" ng-model='kunde.id'> 
+						</td>
+						<td> 
+							<input type="text" ng-model='kunde.name'> 
+						</td>
+						<input type="submit">
+					</form>
+				</tr>
+			</table>
+			
+		</div>
+		<!--Enthält Tabelle für die Anzeige von Produkten.-->
+		<div id="produkte" class="container">
+			<h2>Produkte</h2>
+			<table>
+				<tr><th> Name </th><th> Bestand </th></tr>
+				<!--Erstellt eine Zeile für jeden Eintrag in produkten (ng-repeat).-->
+				<tr ng-repeat='produkt in produkte'>
+					<td>{{produkt.name}}</td>
+					<td class='wide'>
+					<!--Fügt Buttons hinzu, um den Bestand zu verwalten.-->
+					<button class="decrease" ng-click='reduziereBestand(produkt)'>-</button>
+					<div>{{produkt.bestand}}</div>
+					<button class="decrease" ng-click='erhoeheBestand(produkt)'>+</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!--Enthält einen Witz.-->
+	<div id="witz" class="container">
+	<h2>Ein Witz</h2>
+	<div>{{witz}}</div>
+	</div>
+	<!--Importiere Angular über das CDN und den app.js-Controller-->
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+	<script src='app.js'></script>
+  </body>
+</html>

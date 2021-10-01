@@ -4,6 +4,10 @@
 
 
 
+## Bisherige Inhalte
+
+* Es steht anpassbare (bzw. fertige) Web-Applikationen zur Verfügung, die Ihnen die Einrichtung sowie den Vergleich unterschiedlicher Technologie-Stacks näher bringen sollen.
+
 
 
 
@@ -21,5 +25,4 @@ Stand: Okt. 2021
 *Sekretariat*<br>
 *Tel.: 0851 / 509 - 2591*<br>
 *Fax: 0851 / 509 - 2592*<br>
-*E-Mail: sekretariat.lehner@uni-passau.de*
-
+*E-Mail: sekretariat.lehner#AT#uni-passau.de*
