@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 01. Okt 2021 um 12:41
+-- Erstellungszeit: 01. Okt 2021 um 15:21
 -- Server-Version: 8.0.26-0ubuntu0.20.04.3
 -- PHP-Version: 7.4.3
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `kundentabelle` (
-  `id` int NOT NULL,
-  `name` varchar(25) NOT NULL
+  `id` int DEFAULT NULL,
+  `name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -39,7 +39,27 @@ CREATE TABLE `kundentabelle` (
 
 INSERT INTO `kundentabelle` (`id`, `name`) VALUES
 (1, 'meier'),
-(2, 'wimmer');
+(2, 'wimmer'),
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `produkttabelle`
+--
+
+CREATE TABLE `produkttabelle` (
+  `id` int DEFAULT NULL,
+  `name` varchar(25) DEFAULT NULL,
+  `bestand` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Daten für Tabelle `produkttabelle`
+--
+
+INSERT INTO `produkttabelle` (`id`, `name`, `bestand`) VALUES
+(1, 'VGA Kabel', 5),
+(2, 'Monitor', 12);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,6 +1,6 @@
 <?php
 //Datenbankzugriffe werden in data.php verwaltet.
-include 'data.php';
+include_once "data.php";
 
 //Hier werden HTML-Tabellen zum Anzeigen von Datenbankinhalten erstellt.
 
