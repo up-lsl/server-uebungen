@@ -1,1 +1,37 @@
 /webapps/simple-dashboard/mean/node_modules/
+/webapps/simple-dashboard/lamp/script.old.js
+/webapps/simple-dashboard/spring/src/main/resources/static/index.old.html
+
+/webapps/simple-dashboard/spring/HELP.md
+/webapps/simple-dashboard/spring/target/
+/webapps/simple-dashboard/spring/!.mvn/wrapper/maven-wrapper.jar
+/webapps/simple-dashboard/spring/!**/src/main/**/target/
+/webapps/simple-dashboard/spring/!**/src/test/**/target/
+
+### STS ###
+/webapps/simple-dashboard/spring/.apt_generated
+/webapps/simple-dashboard/spring/.classpath
+/webapps/simple-dashboard/spring/.factorypath
+/webapps/simple-dashboard/spring/.project
+/webapps/simple-dashboard/spring/.settings
+/webapps/simple-dashboard/spring/.springBeans
+/webapps/simple-dashboard/spring/.sts4-cache
+
+### IntelliJ IDEA ###
+/webapps/simple-dashboard/spring/.idea
+/webapps/simple-dashboard/spring/*.iws
+/webapps/simple-dashboard/spring/*.iml
+/webapps/simple-dashboard/spring/*.ipr
+
+### NetBeans ###
+/webapps/simple-dashboard/spring/nbproject/private/
+/webapps/simple-dashboard/spring/nbbuild/
+/webapps/simple-dashboard/spring/dist/
+/webapps/simple-dashboard/spring/nbdist/
+/webapps/simple-dashboard/spring/.nb-gradle/
+/webapps/simple-dashboard/spring/build/
+/webapps/simple-dashboard/spring/!**/src/main/**/build/
+/webapps/simple-dashboard/spring/!**/src/test/**/build/
+
+### VS Code ###
+/webapps/simple-dashboard/spring/.vscode/
