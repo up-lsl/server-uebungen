@@ -1,5 +1,6 @@
 // Erstellt ein Modul mit Services und einem zugehörigen Controller.
 angular.module('dashboard', [])
+
 //Erstelle den Service um auf die Kunden-API zuzugreifen. 
 //Dazu mus die HTTP-Dependecy injected werden.
 .factory('kundenService', ['$http', function($http){
@@ -18,6 +19,7 @@ angular.module('dashboard', [])
 	// Der Service muss die definierten Funktionen für den Controller bereit stellen.
 	return {getKunden, saveKunde};
 }])
+
 //Erstelle den Service um auf die Produkt-API zuzugreifen. 
 //Dazu mus die HTTP-Dependecy injected werden.
 .factory('produkteService', ['$http', function($http){
@@ -36,6 +38,7 @@ angular.module('dashboard', [])
 	// Der Service muss die definierten Funktionen für den Controller bereit stellen.
 	return {getProdukte, updateProdukt};
 }])
+
 //Erstelle den Service um auf die externe Jokes-API zuzugreifen. Dazu mus die HTTP-Dependecy injected werden.
 .factory('witzeService', ['$http', function($http){
 	function getWitz(){
@@ -44,11 +47,16 @@ angular.module('dashboard', [])
 	};
 	return {getWitz};
 }])
-// Erstelle den Controller für die Dashboar-App. Hier muss der Scope injected werden und alle Services, die verwendet werden sollen.
+
+
+
+// Erstelle den Controller für die Dashboard-App. Hier muss der Scope injected werden und alle Services, die verwendet werden sollen.
 .controller('dashboardController', ['$scope', 'kundenService', 'produkteService', 'witzeService', function($scope, kundenService, produkteService, witzeService){
 	console.log('Dashboard Controller is running');
+	
 	// Kunden werden asynchron abgefragt.
 	kundenService.getKunden().then(res=>$scope.kunden = res.data);
+	
 	// Produkte werden asynchron abgefragt.
 	produkteService.getProdukte().then(res=>$scope.produkte = res.data);
 	
@@ -66,6 +74,7 @@ angular.module('dashboard', [])
 			kundenService.getKunden().then(res=>$scope.kunden = res.data)
 		);
 	}
+	
 	// Die Funtion muss für den scope verfügbar gemacht werden.
 	$scope.erstelleKunde = (kunde) => erstelleKunde(kunde);
 	
@@ -87,7 +96,9 @@ angular.module('dashboard', [])
 	
 	// Erzeuge einen Witz.
 	witzeService.getWitz().then(res=>$scope.witz = res.data);
+	
 	//Lege den Witz in den scope.
 	$scope.witz = 'haha';
+	
 }]);
 

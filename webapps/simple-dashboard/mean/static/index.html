@@ -1,9 +1,10 @@
 <html>
   <head>
-    <title>
-	MEAN-Dashboard
-	</title>
-	<link rel="stylesheet" href="style.css">
+	  <title>MEAN-Dashboard</title>
+	  <link rel="stylesheet" href="style.css">
+	  <!--Importiere Angular über das CDN und den app.js-Controller-->
+	  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+	  <script src='app.js'></script>
   </head>
   <body ng-app='dashboard' ng-controller='dashboardController'>
 	<h1>
@@ -20,18 +21,16 @@
 					<td>{{kunde.id}}</td>
 					<td>{{kunde.name}}</td>
 				</tr>
-				<tr>
-					<!--Formular, um einen neuen Kunden zu erstellen.-->
-					<form id="myForm" ng-submit='erstelleKunde(kunde)'>
-						<td> 
-							<input type="number" ng-model='kunde.id'> 
-						</td>
-						<td> 
-							<input type="text" ng-model='kunde.name'> 
-						</td>
-						<input type="submit">
-					</form>
-				</tr>
+				<!--Formular, um einen neuen Kunden zu erstellen.-->
+				<form id="myForm" ng-submit='erstelleKunde(kunde)'>
+					<tr>
+						<td> <input type="number" ng-model='kunde.id'> </td>
+						<td> <input type="text" ng-model='kunde.name'>  </td>
+					</tr>
+					<tr>
+						<td colspan="2"> <input type="submit"> </td>
+					</tr>
+				</form>
 			</table>
 			
 		</div>
@@ -47,19 +46,17 @@
 					<!--Fügt Buttons hinzu, um den Bestand zu verwalten.-->
 					<button class="decrease" ng-click='reduziereBestand(produkt)'>-</button>
 					<div>{{produkt.bestand}}</div>
-					<button class="decrease" ng-click='erhoeheBestand(produkt)'>+</button>
+					<button class="increase" ng-click='erhoeheBestand(produkt)'>+</button>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
+
 	<!--Enthält einen Witz.-->
 	<div id="witz" class="container">
 	<h2>Ein Witz</h2>
 	<div>{{witz}}</div>
 	</div>
-	<!--Importiere Angular über das CDN und den app.js-Controller-->
-	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
-	<script src='app.js'></script>
   </body>
 </html>
