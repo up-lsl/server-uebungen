@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Django-Dashboard</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+
+</head>
+<body>
+    <h1>Willkommen zur Django-App!</h1>
+
+    <h1 style="color: red">SCRIPT etc. funktioniert noch nicht!</h1>
+
+    <div class="tables">
+        <div id="kunden" class="container">
+            <h2>Kunden</h2>
+
+            <div if="${kunden != null && !kunden.isEmpty()}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Kunde</th>
+                            <th scope="col">Name</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for kunde in kunden %}
+                        <tr>
+                            <td>{{ kunde.id }}</td>
+                            <td>{{ kunde.name }}</td>
+                        </tr>
+                        {% endfor %}
+                        <!--Formular, um einen neuen Kunden zu erstellen.-->
+                        <form action='' method='post'>
+                            <tr>
+                                <td> <input type='number' name='id'> </td>
+                                <td> <input type='text' name='name'> </td>
+                            </tr>
+                            <tr>
+                                <input type='hidden' name='type' value='addKunde'>
+                                <td colspan="2"> <input type='submit'> </td>
+                            </tr>
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="produkte" class="container">
+            <h2>Produkte</h2>
+
+            <div if="${produkte != null && !produkte.isEmpty()}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">bestand</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for produkt in produkte %}
+                        <tr>
+                            <td>{{ produkt.id }}</td>
+                            <td>{{ produkt.name }}</td>
+                            <td class='wide'>
+                                <button onclick="reduziereBestand({{ produkt.id }})">-</button>
+                                <div id="bestand_{{ produkt.id }}">{{ produkt.bestand }}</div>
+                                <button onclick="erhoeheBestand({{ produkt.id }})">+</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="witz" class="container">
+        <h2>Ein Witz</h2>
+        <div>{{ witz }}</div>
+    </div>
+
+</body>
+</html>
