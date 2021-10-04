@@ -1,0 +1,44 @@
+body{
+	background: lightblue;
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+
+h1{
+	width: 100%;
+	text-align: center;
+}
+
+table{
+	width: 100%;
+	border: 1px solid gray;
+	
+}
+
+tr, td{
+	border: 1px solid lightgray;
+}
+
+.tables{
+	width: 100%;
+	display: grid;
+	grid-auto-flow: column;
+	justify-items: center;
+	align-items: center;
+}
+
+.tables .container{
+	width: 75%;
+}
+
+td.wide{
+	width: 100%;
+	display: grid;
+	grid-auto-flow: column;
+	justify-items: center;
+	align-items: center;
+}
+
+#witz{
+	width: 100%;
+	text-align: center;
+}

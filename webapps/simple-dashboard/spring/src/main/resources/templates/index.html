@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="fragments/layout">
+<head>
+    <title th:text="#{index.title}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script th:src="@{/scripts/script.js}"></script>
+
+</head>
+<body>
+    <h1 th:text="#{index.welcome}"></h1>
+
+    <div class="tables">
+        <div id="kunden" class="container">
+            <h2 th:text="#{kunde.bezpl}"></h2>
+
+            <div th:if="${kunden != null && !kunden.isEmpty()}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col" th:text="#{kunde.id}"></th>
+                            <th scope="col" th:text="#{kunde.name}"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="kunde: ${kunden}">
+                            <td th:text="${kunde.id}"></td>
+                            <td th:text="${kunde.name}"></td>
+                        </tr>
+                        <!--Formular, um einen neuen Kunden zu erstellen.-->
+                        <form action='' method='post'>
+                            <tr>
+                                <td> <input type='number' name='id'> </td>
+                                <td> <input type='text' name='name'> </td>
+                            </tr>
+                            <tr>
+                                <input type='hidden' name='type' value='addKunde'>
+                                <td colspan="2"> <input type='submit'> </td>
+                            </tr>
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="produkte" class="container">
+            <h2 th:text="#{produkt.bezpl}"></h2>
+
+            <div th:if="${produkte != null && !produkte.isEmpty()}">
+                <table>
+                    <thead>
+                    <tr>
+                        <th scope="col" th:text="#{produkt.id}"></th>
+                        <th scope="col" th:text="#{produkt.name}"></th>
+                        <th scope="col" th:text="#{produkt.bestand}"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="produkt: ${produkte}">
+                        <td th:text="${produkt.id}"></td>
+                        <td th:text="${produkt.name}"></td>
+                        <td class='wide'>
+                            <button th:onclick="'reduziereBestand('+${produkt.id}+')'">-</button>
+                            <div th:id="'bestand_'+${produkt.id}" th:text="${produkt.bestand}"></div>
+                            <button th:onclick="'erhoeheBestand('+${produkt.id}+')'">+</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="witz" class="container">
+        <h2>Ein Witz</h2>
+        <div th:text="${witz}"></div>
+    </div>
+
+</body>
+</html>
