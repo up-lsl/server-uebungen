@@ -1,7 +1,7 @@
 <?php
 
 function get_db_conn() {
-	$host = 'localhost';
+	$host = 'localhost-test';
 	$port = 3306;
 	$dbname = 'dashboarddb';
 	$user = 'dbuser';

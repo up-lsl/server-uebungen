@@ -36,15 +36,10 @@
 	<div id="witz" class="container">
 		<h2>Ein Witz</h2>
 		<?php
-		//Die Funktion 'get_joke' ist in 'api.php' definiert.
-		include 'api.php';
-		get_joke();
+		//Die Funktion 'get_witz' ist in 'witz.php' definiert.
+		include 'witz.php';
+		print get_witz();
 		?>
 	</div>
-	<!--Die Funktion 'onload' ist in 'skript.js' definiert, die im HTML-header importiert wurde.
-	
-	JavaScrip wird clientseitig ausgeführt!
-	-->
-	<script>onload();</script>
   </body>
 </html>
