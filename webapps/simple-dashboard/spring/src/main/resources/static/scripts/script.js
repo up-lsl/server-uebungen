@@ -23,7 +23,7 @@ function getBestandFromPage(produkt_id){
 // Funtkion, die die API zur Aktualisierung des Bestands aufruft und auch die Anzeige auf der Webseite verändert
 function aktualisiereBestand(produkt_id, bestand) {
 	//Erzeuge AJAX-Anfrage:
-	let ajaxurl = '/updateBestand',
+	let ajaxurl = 'updateBestand',
 		data = "id="+produkt_id+"&bestand="+bestand;
 
 	var request = new XMLHttpRequest();
