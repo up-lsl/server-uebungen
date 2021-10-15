@@ -11,7 +11,7 @@ function erhoeheBestand(produkt_id){
 }
 
 // Funtkion, die den Bestand direkt von der Webseite ausliest
-// (benötigt um auch nach AJAX-Veränderung immer den aktuellen Bestand zu erhalten, ohne die API bemühen zu müssen)
+// (benötigt, um auch nach AJAX-Veränderung immer den aktuellen Bestand zu erhalten, ohne die API bemühen zu müssen)
 function getBestandFromPage(produkt_id){
 	let bestand_html = document.querySelector('div[id=bestand_'+produkt_id);
 	let bestand_int = parseInt(bestand_html.innerHTML);
@@ -20,7 +20,7 @@ function getBestandFromPage(produkt_id){
 }
 
 
-// Funtkion, die die API zur Aktualisierung des Bestands aufruft und auch die Anzeige auf der Webseite verändert
+// Funktion, die die API zur Aktualisierung des Bestands aufruft und auch die Anzeige auf der Webseite verändert
 function aktualisiereBestand(produkt_id, bestand) {
 	//Erzeuge AJAX-Anfrage:
 	let ajaxurl = 'api.php',

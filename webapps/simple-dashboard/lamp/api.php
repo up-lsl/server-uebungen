@@ -1,7 +1,7 @@
 <?php
 //Hier werden Datenbankinhalte verwaltet.
 
-//einbinden der Dankenbank-Verbindungsdatei
+//einbinden der Datenbank-Verbindungsdatei
 include_once "dbconn.php";
 
 //Überprüfe den Grund für den Aufruf:
@@ -21,23 +21,22 @@ if($_POST['id'] && $_POST['name']){
 //Lese Daten aus Datenbank.
 function get_data($table_name){
 	try{
-		//Datenbankverbindung hestellen.
+		//Datenbankverbindung herstellen.
 		$conn = get_db_conn();
 
 		//Sorgt für lesbare Fehlermeldung.
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		//SQL Befehl vorbereiten.
+		//SQL Befehl erstellen.
 		$selectQuery = 'SELECT * FROM '.$table_name;
-		//$selectQuery = 'SELECT * FROM :table_ame';
 
+		//SQL Befehl vorbereiten
 		$selectStatement = $conn->prepare($selectQuery);
-		//$selectStatement->bindParam(':tableName', $table_name, PDO::PARAM_STR);
 
+		//SQL Befehl ausführen
 		$selectStatement->execute();
-		//$selectStatement->execute([$table_name]);
 
-	    //Wenn das Ergebnis Zeilen enthält, solle die Ergebisse zurückgegeen werden.
+	    //Wenn das Ergebnis Zeilen enthält, solle die Ergebnisse zurückgegeben werden.
 		if($selectStatement->rowCount()){
 			//Speichere alle Zeilen in result.
 			$result = $selectStatement->fetchAll();
@@ -58,7 +57,7 @@ function get_data($table_name){
 
 function insert_data_kunden($data){
 	try{
-		//Datenbankverbindung hestellen.
+		//Datenbankverbindung herstellen.
 		$conn = get_db_conn();
 	 
 		//SQL Befehl ausführen.
@@ -76,7 +75,7 @@ function insert_data_kunden($data){
 
 function update_bestand_produkte($data){
 	try{
-		//Datenbankverbindung hestellen.
+		//Datenbankverbindung herstellen.
 		$conn = get_db_conn();
 
 		//SQL Befehl ausführen.

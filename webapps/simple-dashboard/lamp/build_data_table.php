@@ -9,7 +9,7 @@ function erstelle_tabelle_kunden($name_tabelle) {
 	//Frage benötigte Daten aus Datenbank ab.
 	$data = get_data($name_tabelle);
 	
-	//Ergebnis afbereiten.
+	//Ergebnis aufbereiten.
 	print "<table class='datatable'>";
 	//Tabellenkopf erzeugen.
 	print "	<thead>";
@@ -18,7 +18,8 @@ function erstelle_tabelle_kunden($name_tabelle) {
 	print "			<th> Name </th>";
 	print "		</tr>";
 	print "	</thead>";
-	//Hier werden die einzelnen Zeilen des enmpfangenen Datensatzes durchlaufen.
+
+	//Hier werden die einzelnen Zeilen des empfangenen Datensatzes durchlaufen.
 	print "	<tbody>";
 	foreach ($data as $row) {
 		//Zeile ausgeben.
@@ -29,11 +30,11 @@ function erstelle_tabelle_kunden($name_tabelle) {
 		print "		<td>".$row['name']."</td>";
 		print "	</tr>";
 	}
-	//Ein Forumlar kann mithilfe von 'action' direkt Anfragen an ein PHP-Skript stellen.
+	//Ein Formular kann mithilfe von 'action' direkt Anfragen an ein PHP-Skript stellen.
 	print "		<form action='api.php' method='post'>";
 	//Füge eine Zeile hinzu, um die Eingabe weiterer Kundendaten zu ermöglichen.
 	print "			<tr>";
-	//Die eingegebenen Werte aus den input feldern werden dabei der Anfrage hinzugefügt.
+	//Die eingegebenen Werte aus den input Feldern werden dabei der Anfrage hinzugefügt.
 	print "				<td> <input type='number' name='id'> </td>";
 	print "				<td> <input type='text' name='name'> </td>";
 	print "			</tr>";
