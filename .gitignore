@@ -37,3 +37,5 @@
 /webapps/simple-dashboard/spring/.vscode/
 /webapps/simple-dashboard/django/venv/
 /webapps/simple-dashboard/django/.idea/
+/webapps/install-test/node-express/node_modules/
+/webapps/install-test/node-express-mongoose/node_modules/
