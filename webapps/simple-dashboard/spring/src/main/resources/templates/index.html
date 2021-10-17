@@ -70,7 +70,7 @@
                             <td th:text="${produkt.name}"></td>
                             <!-- Formular, um den Bestand zu verändern.
                                  Dabei wird die id des Produkts direkt in den JS-Funktionsaufruf eingefügt.
-                                 Auch die Bestandsanzeige erhöte eine entsprechende id, um die anpassen zu können -->
+                                 Auch die Bestandsanzeige erhält eine entsprechende id, um die anpassen zu können -->
                             <td class='wide'>
                                 <button th:onclick="'reduziereBestand('+${produkt.id}+')'">-</button>
                                 <div th:id="'bestand_'+${produkt.id}" th:text="${produkt.bestand}"></div>
