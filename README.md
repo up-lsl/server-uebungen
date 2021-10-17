@@ -1,12 +1,13 @@
 # Serverübungen
 
-Übungen zum Umgang mit (Ubuntu) Linux Servern und zum Aufsetzen von Web-Applikationen.
+Übungen zum Umgang mit (Ubuntu-)Linux-Servern und zum Aufsetzen von Web-Applikationen.
 
 
 
 ## Bisherige Inhalte
 
-* Es steht anpassbare (bzw. fertige) Web-Applikationen zur Verfügung, die Ihnen die Einrichtung sowie den Vergleich unterschiedlicher Technologie-Stacks näher bringen sollen.
+* Enthält kleine Test-Projekte, mit denen die Installation und Konfiguration der entsprechenden Komponenten überprüft werden kann.
+* Es stehen anpassbare (bzw. fertige) Web-Applikationen zur Verfügung, die Ihnen die Einrichtung sowie den Vergleich unterschiedlicher Technologie-Stacks näher bringen sollen.
 
 
 
