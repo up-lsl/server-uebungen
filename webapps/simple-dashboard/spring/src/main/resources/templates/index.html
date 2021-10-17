@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
+<!--Einbinden von Thymeleaf-->
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="fragments/layout">
 <head>
-    <title th:text="#{index.title}"></title>
+    <title th:text="#{index.title}"></title> <!-- Seitentitel, ausgelesen aus messages.properties -->
+    <!-- Einbinden der Style- und Script-Dateien -->
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <script th:src="@{/scripts/script.js}"></script>
 
@@ -15,8 +17,10 @@
         <div id="kunden" class="container">
             <h2 th:text="#{kunde.bezpl}"></h2>
 
+            <!-- Erstellen der Kundentabelle, wenn die Variable "kunden" gefüllt ist -->
             <div th:if="${kunden != null && !kunden.isEmpty()}">
                 <table>
+                    <!-- Tabellenkopf -->
                     <thead>
                         <tr>
                             <th scope="col" th:text="#{kunde.id}"></th>
@@ -25,6 +29,7 @@
                     </thead>
 
                     <tbody>
+                        <!-- Erstellt mit einer foreach-Schleife die Zeilen der Tabelle -->
                         <tr th:each="kunde: ${kunden}">
                             <td th:text="${kunde.id}"></td>
                             <td th:text="${kunde.name}"></td>
@@ -43,31 +48,35 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
 
         <div id="produkte" class="container">
             <h2 th:text="#{produkt.bezpl}"></h2>
 
+            <!-- Erstellen der Produkttabelle, wenn die Variable "kunden" gefüllt ist -->
             <div th:if="${produkte != null && !produkte.isEmpty()}">
                 <table>
                     <thead>
-                    <tr>
-                        <th scope="col" th:text="#{produkt.id}"></th>
-                        <th scope="col" th:text="#{produkt.name}"></th>
-                        <th scope="col" th:text="#{produkt.bestand}"></th>
-                    </tr>
+                        <tr>
+                            <th scope="col" th:text="#{produkt.id}"></th>
+                            <th scope="col" th:text="#{produkt.name}"></th>
+                            <th scope="col" th:text="#{produkt.bestand}"></th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="produkt: ${produkte}">
-                        <td th:text="${produkt.id}"></td>
-                        <td th:text="${produkt.name}"></td>
-                        <td class='wide'>
-                            <button th:onclick="'reduziereBestand('+${produkt.id}+')'">-</button>
-                            <div th:id="'bestand_'+${produkt.id}" th:text="${produkt.bestand}"></div>
-                            <button th:onclick="'erhoeheBestand('+${produkt.id}+')'">+</button>
-                        </td>
-                    </tr>
+                        <!-- Erstellt mit einer foreach-Schleife die Zeilen der Tabelle -->
+                        <tr th:each="produkt: ${produkte}">
+                            <td th:text="${produkt.id}"></td>
+                            <td th:text="${produkt.name}"></td>
+                            <!-- Formular, um den Bestand zu verändern.
+                                 Dabei wird die id des Produkts direkt in den JS-Funktionsaufruf eingefügt.
+                                 Auch die Bestandsanzeige erhöte eine entsprechende id, um die anpassen zu können -->
+                            <td class='wide'>
+                                <button th:onclick="'reduziereBestand('+${produkt.id}+')'">-</button>
+                                <div th:id="'bestand_'+${produkt.id}" th:text="${produkt.bestand}"></div>
+                                <button th:onclick="'erhoeheBestand('+${produkt.id}+')'">+</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -76,6 +85,7 @@
 
     <div id="witz" class="container">
         <h2>Ein Witz</h2>
+        <!-- Platzhalter für den Witz -->
         <div th:text="${witz}"></div>
     </div>
 
