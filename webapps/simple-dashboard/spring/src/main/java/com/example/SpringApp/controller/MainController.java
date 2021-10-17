@@ -49,11 +49,11 @@ public class MainController {
     @PostMapping("/")
     public String main_post(@RequestParam String type, @RequestParam int id, @RequestParam String name, Model model) {
         switch (type) {
-            case "addKunde": //neuer Kunde soll erstellt werden
-                apiController.addNewKunde(id, name); //Aufruf der entsprechenden Methode im API Controller
+            case "addKunde": // Neuer Kunde soll erstellt werden
+                apiController.addNewKunde(id, name); // Aufruf der entsprechenden Methode im API-Controller
                 break;
         }
 
-        return main(model); //Rückgabe des(selben) Models, um auf der Startseite zu bleiben bzw. diese neu zu laden
+        return main(model); // Rückgabe des(selben) Models, um auf der Startseite zu bleiben bzw. diese neu zu laden
     }
 }
