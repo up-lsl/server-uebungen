@@ -4,7 +4,7 @@ const app = express();
 const PORT = 3000;
 
 // Stelle Verbindung mit Datenbank her.
-const dbURL = 'mongodb://localhost-test:27017/dashboarddb';
+const dbURL = 'mongodb://localhost:27017/dashboarddb';
 const options = {
 	user: 'dbuser',
 	pass: 'dbuser123',
