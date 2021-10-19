@@ -48,7 +48,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${artifactId}</finalName> <!--Tag, um die WAR schöner zu benennen-->
+		<finalName>${project.artifactId}</finalName> <!--Tag, um die WAR schöner zu benennen-->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
