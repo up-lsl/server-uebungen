@@ -75,7 +75,7 @@ angular.module('dashboard', [])
 		);
 	}
 	
-	// Die Funtion muss für den scope verfügbar gemacht werden.
+	// Die Funktion muss für den scope verfügbar gemacht werden.
 	$scope.erstelleKunde = (kunde) => erstelleKunde(kunde);
 	
 	// ClickListner für den '-'-Button.
@@ -83,7 +83,7 @@ angular.module('dashboard', [])
 		produkt.bestand = produkt.bestand - 1;
 		produkteService.updateProdukt(produkt);
 	}
-	// Die Funtion muss für den scope verfügbar gemacht werden.
+	// Die Funktion muss für den scope verfügbar gemacht werden.
 	$scope.reduziereBestand = (produkt) => reduziereBestand(produkteService, produkt); 
 	
 	// ClickListner für den '+'-Button.
