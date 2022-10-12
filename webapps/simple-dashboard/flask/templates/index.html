@@ -1,0 +1,91 @@
+<!-- Erben von base.html -->
+{% extends 'base.html' %}
+
+<!-- Füllen der Felder der base.html -->
+{% block title %}{{ texts.index.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ texts.index.title }}</h1>
+
+    <div class="tables">
+        <div id="kunden" class="container">
+            <h2>{{ texts.kunde.bezpl }}</h2>
+
+            <!-- Erstellen der Kundentabelle, wenn die Variable "kunden" gefüllt ist -->
+            {% if kunden is not none and kunden|length > 0 %}
+                <table>
+                    <!-- Tabellenkopf -->
+                    <thead>
+                        <tr>
+                            <th>{{ texts.kunde.key }}</th>
+                            <th>{{ texts.kunde.name }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Erstellt mit einer foreach-Schleife die Zeilen der Tabelle -->
+                        {% for kunde in kunden %}
+                            <tr>
+                                <td>{{ kunde.key }}</td>
+                                <td>{{ kunde.name }}</td>
+                            </tr>
+                        {% endfor %}
+                        <!--Formular, um einen neuen Kunden zu erstellen.-->
+                        <form action='' method='post'>
+                            <tr>
+                                <td> <input type='number' name='key'> </td>
+                                <td> <input type='text' name='name'> </td>
+                            </tr>
+                            <tr>
+                                <input type='hidden' name='type' value='addKunde'>
+                                <td colspan="2"> <input type='submit'> </td>
+                            </tr>
+                        </form>
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Keine Kunden in Datenbank</p>
+            {% endif %}
+        </div>
+
+        <div id="produkte" class="container">
+            <h2>{{ texts.produkt.bezpl }}</h2>
+
+            <!-- Erstellen der Produkttabelle, wenn die Variable "produkte" gefüllt ist -->
+            {% if produkte is not none and produkte|length > 0 %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ texts.produkt.key }}</th>
+                            <th>{{ texts.produkt.name }}</th>
+                            <th>{{ texts.produkt.bestand }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Erstellt mit einer foreach-Schleife die Zeilen der Tabelle -->
+                        {% for produkt in produkte %}
+                            <tr>
+                                <td>{{ produkt.key }}</td>
+                                <td>{{ produkt.name }}</td>
+                                <!-- Formular, um den Bestand zu verändern.
+                                     Dabei wird die id des Produkts direkt in den JS-Funktionsaufruf eingefügt.
+                                     Auch die Bestandsanzeige erhält eine entsprechende id, um die anpassen zu können -->
+                                <td class='wide'>
+                                    <button onclick="reduziereBestand({{ produkt.key }})">-</button>
+                                    <div id="bestand_{{produkt.key}}">{{ produkt.bestand }}</div>
+                                    <button onclick="erhoeheBestand({{ produkt.key }})">+</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="witz" class="container">
+        <h2>Ein Witz</h2>
+        <!-- Platzhalter für den Witz -->
+        <div>{{witz}}</div>
+    </div>
+{% endblock %}

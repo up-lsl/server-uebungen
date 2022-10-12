@@ -1,0 +1,38 @@
+<!--
+Grund-JINJA-Template
+(https://flask.palletsprojects.com/en/0.12.x/tutorial/templates/)
+-->
+
+<!doctype html>
+<!-- Header -->
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Eigenes CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Eigenes JavaScript -->
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+
+    <!-- Block um weitere Headerzeilen einzufügen -->
+    {% block furtherhead %} {% endblock %}
+
+    <!-- Block um Titel zu bearbeiten -->
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+
+    <div>
+        {% block content %} {% endblock %}
+    </div>
+
+  </body>
+
+  <!-- Footer -->
+    <footer>
+
+  </footer>
+</html>
