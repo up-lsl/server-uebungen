@@ -127,4 +127,4 @@ def update_produkt_bestand(key):
 
 if __name__ == '__main__':
     from os import environ
-    app.run()
+    app.run(host="0.0.0.0")
