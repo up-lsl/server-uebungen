@@ -207,6 +207,10 @@ Die nachfolgende Anleitung ist wieder für Ubuntu verfasst. Auf anderen Betriebs
 
 # Starten der Anwendung
 
+## In der IDE
+
+Prinzipiell funktioniert dies analog zur Umetzung mit Ubuntu im nachfolgenden Unterkapitel, um vieles kümmert sich aber erneut die IDE. Bspw. erstellt die IDE "PyCharm" bei der Erstellung eines Flask-Projekts bereits das virutelle Environment etc. Außerdem ist es möglich, anstatt einer lokalen Installation von Python dies auch über Docker abzuwickeln, wie dieses Beispiel zeigt: https://blog.jetbrains.com/pycharm/2017/03/docker-compose-getting-flask-up-and-running/
+
 ## Im Development-Modus
 
 - In Dashboard-Ordner wechseln:
