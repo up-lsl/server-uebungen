@@ -85,8 +85,6 @@ _Das verwendete Modul zur Datenhaltung (MongoEngine) verwendet intern das Feld "
 
 ## Im Deployment-Modus
 
-<b style="color:red">Noch nicht getestet! -> Bitte gedulden Sie sich noch</b>
-
 - Erstellt nach https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
 
 - Zum Deployment wird im folgenden "Gunicorn", ein sog. WSGI-HTTP-Server (_Web Server Gateway Interface HTTP-Server_) verwendet.
