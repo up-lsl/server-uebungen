@@ -39,7 +39,7 @@ CREATE TABLE `kundentabelle` (
 
 INSERT INTO `kundentabelle` (`id`, `name`) VALUES
 (1, 'meier'),
-(2, 'wimmer'),
+(2, 'wimmer');
 
 -- --------------------------------------------------------
 
