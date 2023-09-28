@@ -1,6 +1,6 @@
 package com.example.SpringApp.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Datenmodell des Produkts
